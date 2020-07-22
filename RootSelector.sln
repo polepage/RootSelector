@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RootSelector", "RootSelector\RootSelector.csproj", "{5E317EC5-7B05-42AC-BE93-D729F8084BE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS.Utils", "CS.Utils\CS.Utils\CS.Utils.csproj", "{B728FF8A-61E8-4904-961A-53DD3E04514A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Droid.Utils", "CS.Utils\Droid.Utils\Droid.Utils.csproj", "{0626784C-EB6E-4894-9E5D-A2FE61FF0771}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS.Utils.Unity", "CS.Utils\CS.Utils.Unity\CS.Utils.Unity.csproj", "{F66E7C9E-A086-4F8D-B047-4D1AFAF8FF55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Droid.Utils.Unity", "CS.Utils\Droid.Utils.Unity\Droid.Utils.Unity.csproj", "{3E0DDB59-ADDC-46C7-8C0F-9551B91D58BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E317EC5-7B05-42AC-BE93-D729F8084BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E317EC5-7B05-42AC-BE93-D729F8084BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E317EC5-7B05-42AC-BE93-D729F8084BE4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5E317EC5-7B05-42AC-BE93-D729F8084BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E317EC5-7B05-42AC-BE93-D729F8084BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E317EC5-7B05-42AC-BE93-D729F8084BE4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B728FF8A-61E8-4904-961A-53DD3E04514A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B728FF8A-61E8-4904-961A-53DD3E04514A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B728FF8A-61E8-4904-961A-53DD3E04514A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B728FF8A-61E8-4904-961A-53DD3E04514A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0626784C-EB6E-4894-9E5D-A2FE61FF0771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0626784C-EB6E-4894-9E5D-A2FE61FF0771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0626784C-EB6E-4894-9E5D-A2FE61FF0771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0626784C-EB6E-4894-9E5D-A2FE61FF0771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F66E7C9E-A086-4F8D-B047-4D1AFAF8FF55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F66E7C9E-A086-4F8D-B047-4D1AFAF8FF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F66E7C9E-A086-4F8D-B047-4D1AFAF8FF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F66E7C9E-A086-4F8D-B047-4D1AFAF8FF55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E0DDB59-ADDC-46C7-8C0F-9551B91D58BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E0DDB59-ADDC-46C7-8C0F-9551B91D58BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E0DDB59-ADDC-46C7-8C0F-9551B91D58BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E0DDB59-ADDC-46C7-8C0F-9551B91D58BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C763FA88-C651-44AE-A4C1-0D88FC428932}
+	EndGlobalSection
+EndGlobal
