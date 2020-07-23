@@ -37,6 +37,7 @@ namespace RootSelector.Activities
 
             RegisterPlayerCount();
             RegisterReach();
+            RegisterReset();
             RegisterProcess();
         }
 
@@ -82,6 +83,18 @@ namespace RootSelector.Activities
             _targetReach.Adapter = _targetReachAdapter;
 
             TargetReach = reachRange.Default;
+        }
+
+        // Reset
+        private void RegisterReset()
+        {
+            var reset = FindViewById<Button>(Resource.Id.btn_reset);
+            reset.Click += ResetForm;
+        }
+
+        private void ResetForm(object sender, System.EventArgs e)
+        {
+            UpdateReach();
         }
 
         // Process
