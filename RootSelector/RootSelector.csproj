@@ -121,14 +121,13 @@
       <Project>{0626784C-EB6E-4894-9E5D-A2FE61FF0771}</Project>
       <Name>Droid.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Root\Root.csproj">
+      <Project>{D982F338-C4CA-4AD5-B5AE-6F69F49F1406}</Project>
+      <Name>Root</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_setup.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\content_common.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -144,6 +143,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_results.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\spinner_base.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

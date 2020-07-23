@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/content_common" />
-    <include layout="@layout/content_setup" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="8dp"
+        android:text="Player Count"
+        android:textSize="@dimen/abc_text_size_caption_material"/>
+    <Spinner android:id="@+id/spinner_playercount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="5dp"/>
 
-</android.support.design.widget.CoordinatorLayout>
+
+    <Button
+        android:id="@+id/btn_process"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="Continue"/>
+</LinearLayout>
