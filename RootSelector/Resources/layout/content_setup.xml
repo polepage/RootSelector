@@ -4,19 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Table Setup"/>
-
     <Button
-        android:id="@+id/btn_to_game"
+        android:id="@+id/btn_process"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="5dip"
-        android:layout_marginBottom="10dip"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginBottom="10dp"
         android:text="Continue"/>
 </RelativeLayout>
