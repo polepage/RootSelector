@@ -64,7 +64,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\ResultActivity.cs" />
+    <Compile Include="Activities\ResultsActivity.cs" />
     <Compile Include="Activities\SetupActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
