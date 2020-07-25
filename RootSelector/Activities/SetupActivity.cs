@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
 using Root;
+using RootSelector.Adapters;
 using System.Linq;
 
 namespace RootSelector.Activities
@@ -13,9 +14,11 @@ namespace RootSelector.Activities
     {
         private Spinner _playerCount;
         private Spinner _targetReach;
+        private ListView _factions;
 
         private ArrayAdapter<int> _playerCountAdapter;
         private ArrayAdapter<int> _targetReachAdapter;
+        private ArrayAdapter<Faction> _factionsAdapter;
 
         private int PlayerCount
         {
@@ -37,6 +40,7 @@ namespace RootSelector.Activities
 
             RegisterPlayerCount();
             RegisterReach();
+            RegisterFactions();
             RegisterReset();
             RegisterProcess();
         }
@@ -61,28 +65,43 @@ namespace RootSelector.Activities
             UpdateReach();
         }
 
+        // Target Reach
         private void RegisterReach()
         {
             _targetReach = FindViewById<Spinner>(Resource.Id.spinner_reach);
             _targetReach.ItemSelected += TargetReachChanged;
+            _targetReachAdapter = new ArrayAdapter<int>(this, Resource.Layout.spinner_base);
+            _targetReach.Adapter = _targetReachAdapter;
             UpdateReach();
         }
 
         private void TargetReachChanged(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            // Do something?
+            UpdateFactions();
         }
 
         private void UpdateReach()
         {
-            var reachRange = Rules.TargetReach(PlayerCount);
-            _targetReachAdapter = new ArrayAdapter<int>(
-                this,
-                Resource.Layout.spinner_base,
-                Enumerable.Range(reachRange.Min, reachRange.Max - reachRange.Min + 1).ToArray());
-            _targetReach.Adapter = _targetReachAdapter;
+            var reachRange = Rules.GetTargetReach(PlayerCount);
+            _targetReachAdapter.Clear();
+            _targetReachAdapter.AddAll(Enumerable.Range(reachRange.Min, reachRange.Max - reachRange.Min + 1).ToList());
 
             TargetReach = reachRange.Default;
+        }
+
+        // Factions
+        private void RegisterFactions()
+        {
+            _factions = FindViewById<ListView>(Resource.Id.listview_factions);
+            _factionsAdapter = new FactionArrayAdapter(this);
+            _factions.Adapter = _factionsAdapter;
+            UpdateFactions();
+        }
+
+        private void UpdateFactions()
+        {
+            _factionsAdapter.Clear();
+            _factionsAdapter.AddAll(Rules.GetAvailableFactions(PlayerCount, TargetReach));
         }
 
         // Reset
@@ -95,6 +114,7 @@ namespace RootSelector.Activities
         private void ResetForm(object sender, System.EventArgs e)
         {
             UpdateReach();
+            UpdateFactions();
         }
 
         // Process

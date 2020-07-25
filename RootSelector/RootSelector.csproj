@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Activities\ResultsActivity.cs" />
     <Compile Include="Activities\SetupActivity.cs" />
+    <Compile Include="Adapters\FactionArrayAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootApp.cs" />
@@ -138,6 +139,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\spinner_base.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\listview_factions.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

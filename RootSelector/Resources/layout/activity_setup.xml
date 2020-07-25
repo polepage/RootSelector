@@ -33,6 +33,21 @@
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="5dp"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="8dp"
+        android:text="Available Factions"
+        android:textSize="@dimen/abc_text_size_caption_material"/>
+    <ListView
+        android:id="@+id/listview_factions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="5dp"
+        android:choiceMode="none"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

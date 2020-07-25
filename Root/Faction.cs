@@ -1,8 +1,8 @@
 ﻿namespace Root
 {
-    class Faction
+    public class Faction
     {
-        public Faction(char id, string name, int reach)
+        internal Faction(char id, string name, int reach)
         {
             Id = id;
             Name = name;
@@ -12,5 +12,16 @@
         public char Id { get; }
         public string Name { get; }
         public int Reach { get; }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Faction f &&
+                   f.Id == Id;
+        }
     }
 }
