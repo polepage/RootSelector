@@ -41,7 +41,7 @@ namespace RootSelector.Activities
             RegisterPlayerCount();
             RegisterReach();
             RegisterFactions();
-            RegisterReset();
+            //RegisterReset();
             RegisterProcess();
         }
 
@@ -105,17 +105,17 @@ namespace RootSelector.Activities
         }
 
         // Reset
-        private void RegisterReset()
-        {
-            var reset = FindViewById<Button>(Resource.Id.btn_reset);
-            reset.Click += ResetForm;
-        }
+        //private void RegisterReset()
+        //{
+        //    var reset = FindViewById<Button>(Resource.Id.btn_reset);
+        //    reset.Click += ResetForm;
+        //}
 
-        private void ResetForm(object sender, System.EventArgs e)
-        {
-            UpdateReach();
-            UpdateFactions();
-        }
+        //private void ResetForm(object sender, System.EventArgs e)
+        //{
+        //    UpdateReach();
+        //    UpdateFactions();
+        //}
 
         // Process
         private void RegisterProcess()
