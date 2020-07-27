@@ -29,18 +29,17 @@ namespace Root
             { 6, 28 }
         };
 
-        private static readonly IComparer<Faction> _factionComparer = Comparer<Faction>.Create((f1, f2) => f1.Id - f2.Id);
-
         public static ValueRange PlayerCount => new ValueRange(2, 6, 4);
+        public static int MinimumReach => 17;
 
         public static ValueRange GetTargetReach(int playerCount)
         {
-            int min = Math.Max(17, _factions.Select(f => f.Reach).OrderBy(r => r).Take(playerCount).Sum());
-            int max = _factions.Select(f => f.Reach).OrderByDescending(r => r).Take(playerCount).Sum();
+            int min = GetMinReach(_factions, playerCount);
+            int max = GetMaxReach(_factions, playerCount);
             return new ValueRange(min, max, Math.Min(max, _defaultReach[playerCount]));
         }
 
-        public static List<Faction> GetAvailableFactions(int playerCount, int targetReach)
+        public static List<AvailableFaction> GetAvailableFactions(int playerCount, int targetReach)
         {
             var selectable = GetSelectableFactions(_factions, playerCount, targetReach, false);
             bool needVagabond2 = GetSelectableFactions(
@@ -50,14 +49,34 @@ namespace Root
                 true)
                 .Contains(_factionsById['E']);
 
-            var result = new List<Faction>(selectable);
             if (needVagabond2)
             {
-                result.Add(_factionsById['E']);
+                selectable = selectable.Append(_factionsById['E']);
             }
 
-            result.Sort(_factionComparer);
-            return result;
+            return selectable.OrderBy(f => f.Id).Select(f => new AvailableFaction(f)).ToList();
+        }
+
+        public static int GetNormalizedFactionCount(IEnumerable<Faction> factions)
+        {
+            int count = factions.Count();
+            if (!factions.Contains(_factionsById['D']) && factions.Contains(_factionsById['E']))
+            {
+                // If there is no Vagabond, then don't count 2nd Vagabond
+                count--;
+            }
+
+            return count;
+        }
+
+        public static int GetMinReach(IEnumerable<Faction> factions, int playerCount)
+        {
+            return Math.Max(MinimumReach, factions.Select(f => f.Reach).OrderBy(r => r).Take(playerCount).Sum());
+        }
+
+        public static int GetMaxReach(IEnumerable<Faction> factions, int playerCount)
+        {
+            return factions.Select(f => f.Reach).OrderByDescending(r => r).Take(playerCount).Sum();
         }
 
         private static IEnumerable<Faction> GetSelectableFactions(IEnumerable<Faction> factions, int selections, int reach, bool allowSecondVagabond)

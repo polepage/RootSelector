@@ -6,18 +6,20 @@ namespace RootSelector.Adapters
 {
     class DefaultValueArrayAdapter<T> : ArrayAdapter<T>
     {
-        public DefaultValueArrayAdapter(Context context, int textViewResourceId, T defaultValue)
+        public DefaultValueArrayAdapter(Context context, int textViewResourceId, string defaultText, T defaultValue)
             : base(context, textViewResourceId)
         {
+            DefaultText = defaultText;
             DefaultValue = defaultValue;
         }
 
-        public DefaultValueArrayAdapter(Context context, int textViewResourceId)
-            : this(context, textViewResourceId, default)
+        public DefaultValueArrayAdapter(Context context, int textViewResourceId, string defaultText)
+            : this(context, textViewResourceId, defaultText, default)
         {
         }
 
         public T DefaultValue { get; set; }
+        public string DefaultText { get; }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
@@ -38,7 +40,7 @@ namespace RootSelector.Adapters
             T item = GetItem(position);
             if (DefaultValue != null && DefaultValue.Equals(item))
             {
-                view.Text += "  (Default)";
+                view.Text += "  (" + DefaultText + ")";
             }
         }
     }

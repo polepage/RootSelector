@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Root Faction Selector</string>
-    <!--<string name="action_settings">Settings</string>-->
+    <string name="error_playercount">There is less available factions than the player count. Re-add factions.</string>
+    <string name="error_minreach">The current maximum reach of available factions is {0} and the minimum is {1}. Re-add high value factions.</string>
+    <string name="warning_targetreach">The current maximum reach of available factions is {0} and the target is {1}. Re-add high value factions or play with target reach as {0}.</string>
 </resources>
