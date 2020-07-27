@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Activities\ResultsActivity.cs" />
     <Compile Include="Activities\SetupActivity.cs" />
+    <Compile Include="Adapters\DefaultValueArrayAdapter.cs" />
     <Compile Include="Adapters\FactionArrayAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

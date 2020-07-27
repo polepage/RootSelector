@@ -17,7 +17,7 @@ namespace RootSelector.Activities
         private ListView _factions;
 
         private ArrayAdapter<int> _playerCountAdapter;
-        private ArrayAdapter<int> _targetReachAdapter;
+        private DefaultValueArrayAdapter<int> _targetReachAdapter;
         private ArrayAdapter<Faction> _factionsAdapter;
 
         private int PlayerCount
@@ -41,7 +41,6 @@ namespace RootSelector.Activities
             RegisterPlayerCount();
             RegisterReach();
             RegisterFactions();
-            //RegisterReset();
             RegisterProcess();
         }
 
@@ -70,7 +69,7 @@ namespace RootSelector.Activities
         {
             _targetReach = FindViewById<Spinner>(Resource.Id.spinner_reach);
             _targetReach.ItemSelected += TargetReachChanged;
-            _targetReachAdapter = new ArrayAdapter<int>(this, Resource.Layout.spinner_base);
+            _targetReachAdapter = new DefaultValueArrayAdapter<int>(this, Resource.Layout.spinner_base);
             _targetReach.Adapter = _targetReachAdapter;
             UpdateReach();
         }
@@ -84,6 +83,7 @@ namespace RootSelector.Activities
         {
             var reachRange = Rules.GetTargetReach(PlayerCount);
             _targetReachAdapter.Clear();
+            _targetReachAdapter.DefaultValue = reachRange.Default;
             _targetReachAdapter.AddAll(Enumerable.Range(reachRange.Min, reachRange.Max - reachRange.Min + 1).ToList());
 
             TargetReach = reachRange.Default;
@@ -103,19 +103,6 @@ namespace RootSelector.Activities
             _factionsAdapter.Clear();
             _factionsAdapter.AddAll(Rules.GetAvailableFactions(PlayerCount, TargetReach));
         }
-
-        // Reset
-        //private void RegisterReset()
-        //{
-        //    var reset = FindViewById<Button>(Resource.Id.btn_reset);
-        //    reset.Click += ResetForm;
-        //}
-
-        //private void ResetForm(object sender, System.EventArgs e)
-        //{
-        //    UpdateReach();
-        //    UpdateFactions();
-        //}
 
         // Process
         private void RegisterProcess()
