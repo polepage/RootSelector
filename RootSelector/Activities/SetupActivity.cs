@@ -113,7 +113,7 @@ namespace RootSelector.Activities
         private void UpdateFactions()
         {
             _factionsAdapter.Clear();
-            _factionsAdapter.AddAll(Rules.GetAvailableFactions(PlayerCount, TargetReach));
+            _factionsAdapter.AddAll(Rules.GetAvailableFactions(PlayerCount, TargetReach).ToArray());
         }
 
         private void FactionUpdated()

@@ -6,6 +6,7 @@ using Droid.Utils;
 using Root;
 using RootSelector.Adapters;
 using RootSelector.Intents;
+using System.Linq;
 
 namespace RootSelector.Activities
 {
@@ -40,7 +41,7 @@ namespace RootSelector.Activities
         {
             _resultsAdapter.Clear();
             _resultsAdapter.StartPosition = gameSetup.FirstPlayer;
-            _resultsAdapter.AddAll(gameSetup.Seats);
+            _resultsAdapter.AddAll(gameSetup.Seats.ToArray());
         }
     }
 }

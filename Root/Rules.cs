@@ -39,7 +39,7 @@ namespace Root
             return new ValueRange(min, max, Math.Min(max, _defaultReach[playerCount]));
         }
 
-        public static List<AvailableFaction> GetAvailableFactions(int playerCount, int targetReach)
+        public static IEnumerable<AvailableFaction> GetAvailableFactions(int playerCount, int targetReach)
         {
             var selectable = GetSelectableFactions(_factions, playerCount, targetReach, false);
             bool needVagabond2 = GetSelectableFactions(
@@ -54,7 +54,7 @@ namespace Root
                 selectable = selectable.Append(_factionsById['E']);
             }
 
-            return selectable.OrderBy(f => f.Id).Select(f => new AvailableFaction(f)).ToList();
+            return selectable.OrderBy(f => f.Id).Select(f => new AvailableFaction(f));
         }
 
         public static int GetNormalizedFactionCount(IEnumerable<Faction> factions)
