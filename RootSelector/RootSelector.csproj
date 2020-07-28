@@ -69,6 +69,7 @@
     <Compile Include="Activities\SetupActivity.cs" />
     <Compile Include="Adapters\DefaultValueArrayAdapter.cs" />
     <Compile Include="Adapters\FactionArrayAdapter.cs" />
+    <Compile Include="Adapters\ResultArrayAdapter.cs" />
     <Compile Include="Intents\FactionParcelable.cs" />
     <Compile Include="Intents\GameSetupParcelable.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -148,6 +149,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\listview_factions.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\listview_results.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
