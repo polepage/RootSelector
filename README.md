@@ -18,7 +18,10 @@ Currently, the app is only available as an apk to side-load in your Android devi
 
 To setup a game, sit around the table in whatever way you choose. Then, a player with the app will setup the game.
 
-On the setup screen:
+Setup screen:
+
+![Setup Screen](/wiki/setup.png)
+
 1. Payer Count: This is self-explanatory.
 2. Target Reach: This is the total Reach you want the factions in your game to get to. Default value is the value recommanded in the rulebook for your player count. You can select any value between 17 and the maximum for your player count.
 3. The table display the factions that will be part of  the random selection. Factions that are mathematically impossible to use for a given target reach will be removed.
@@ -31,7 +34,10 @@ Notes:
 * If you remove factions such as it becomes impossible to reach 17 (the minimum in the rulebook), there will be an error message and you won't be able to generate a game.
 * If you remove factions such as it becomes impossible to reach your target, there will be a warning message and if you start a game in that state the maximum of the available factions will be the target reach.
 
-On the result screen:
+Result screen:
+
+![Result Screen](/wiki/results.png)
+
 1. The table list the factions to distribute to each player around the table, starting with the player holding the device where the game is setup.
 2. The player that gets the highlighted faction will be the first player.
 
