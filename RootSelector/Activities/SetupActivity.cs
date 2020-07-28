@@ -10,7 +10,10 @@ using System.Linq;
 
 namespace RootSelector.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name",
+              Theme = "@style/AppTheme",
+              ScreenOrientation = Android.Content.PM.ScreenOrientation.Nosensor,
+              MainLauncher = true)]
     public class SetupActivity : AppCompatActivity
     {
         private Spinner _playerCount;
