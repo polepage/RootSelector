@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
+using Droid.Utils;
+using RootSelector.Intents;
 
 namespace RootSelector.Activities
 {
@@ -12,6 +14,13 @@ namespace RootSelector.Activities
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_results);
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+
+            var gameSetup = Intent.GetTypedExtra<GameSetupParcelable>(GameSetupParcelable.IntentId).GameSetup;
         }
     }
 }
