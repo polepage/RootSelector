@@ -13,10 +13,9 @@
         public string Name { get; }
         public int Reach { get; }
 
-        public override int GetHashCode()
-        {
-            return Id.GetHashCode();
-        }
+        public static Faction Create(char id, string name, int reach) => new Faction(id, name, reach);
+
+        public override int GetHashCode() => Id.GetHashCode();
 
         public override bool Equals(object obj)
         {

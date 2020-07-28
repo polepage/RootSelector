@@ -79,6 +79,32 @@ namespace Root
             return factions.Select(f => f.Reach).OrderByDescending(r => r).Take(playerCount).Sum();
         }
 
+        public static GameSetup CreateSetup(int playerCount, int targetReach, IEnumerable<Faction> factions)
+        {
+            int maxReach = GetMaxReach(factions, playerCount);
+            if (maxReach < MinimumReach || GetNormalizedFactionCount(factions) < playerCount)
+            {
+                throw new ArgumentOutOfRangeException("Invalid Faction Pool");
+            }
+
+            var rng = new Random();
+            int remainingReach = Math.Min(maxReach, targetReach);
+            var resultList = new List<Faction>(playerCount);
+            for (int i = 0; i < playerCount; i++)
+            {
+                var pool = GetSelectableFactions(factions.Where(f => !resultList.Contains(f)),
+                                                 playerCount - i,
+                                                 remainingReach,
+                                                 resultList.Contains(_factionsById['D']));
+                Faction newSeat = pool.Skip(rng.Next(0, pool.Count())).First();
+                resultList.Add(newSeat);
+
+                remainingReach -= newSeat.Reach;
+            }
+
+            return new GameSetup(resultList, rng.Next(0, playerCount));
+        }
+
         private static IEnumerable<Faction> GetSelectableFactions(IEnumerable<Faction> factions, int selections, int reach, bool allowSecondVagabond)
         {
             var highestReach = factions.OrderByDescending(f => f.Reach).Take(selections - 1);

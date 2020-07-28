@@ -6,6 +6,7 @@ using Android.Widget;
 using Droid.Utils;
 using Root;
 using RootSelector.Adapters;
+using RootSelector.Intents;
 using System.Linq;
 
 namespace RootSelector.Activities
@@ -194,8 +195,13 @@ namespace RootSelector.Activities
 
         private void CreateGame(object sender, System.EventArgs e)
         {
-            // Check conditions before advancing
-            var navigation = new Intent(this, typeof(ResultsActivity));
+            GameSetup gameSetup = Rules.CreateSetup(PlayerCount, TargetReach, _factionsAdapter
+                .EnumerateAdapter()
+                .Where(af => af.Available)
+                .Select(af => af.Faction));
+
+            var navigation = new Intent(this, typeof(ResultsActivity))
+                .PutExtra(GameSetupParcelable.IntentId, new GameSetupParcelable(gameSetup));
             StartActivity(navigation);
         }
     }

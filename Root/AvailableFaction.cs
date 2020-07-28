@@ -2,7 +2,7 @@
 {
     public class AvailableFaction
     {
-        public AvailableFaction(Faction faction)
+        internal AvailableFaction(Faction faction)
         {
             Faction = faction;
             Available = true;
