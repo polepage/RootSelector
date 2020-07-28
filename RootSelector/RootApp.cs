@@ -8,7 +8,11 @@ using Prism.Modularity;
 
 namespace RootSelector
 {
-    [Application]
+#if DEBUG
+    [Application(Debuggable = true)]
+#else
+    [Application(Debuggable = false)]
+#endif
     public class RootApp : DroidApp
     {
         public RootApp(IntPtr handle, JniHandleOwnership transfer) : base(handle, transfer) { }
